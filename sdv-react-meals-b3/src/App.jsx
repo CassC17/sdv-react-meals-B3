@@ -7,6 +7,7 @@ import HomePage from './page/HomePage'
 import ContactPage from './page/ContactPage'
 import AllReciepes from './page/AllReciepes'
 import ShowMealPage from './page/ShowMealPage'
+import SearchResultsPage from './page/SearchResultsPage'
 
 function App() {
 
@@ -16,7 +17,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/allreciepes" element={<AllReciepes />} />
-        <Route path="/showmeal/:id" element={<ShowMealPage />} />
+        <Route path="/showmeal/:id" element={<ShowMealPage />} /> 
+        <Route path="/search" element={<SearchResultsPage />} />  {/* param url utile pour nav à facette = filtre de recherche */}
       </Routes>
     </BrowserRouter>
   )  
