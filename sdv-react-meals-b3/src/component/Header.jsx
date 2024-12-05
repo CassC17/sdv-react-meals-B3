@@ -4,12 +4,12 @@ const Header = () => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = (event) => { //info recup  du nav 
+        event.preventDefault(); // enlève le comportement par défaut du nav qui recharge la page
         const query = event.target.query.value;
         console.log(query);
 
-        navigate("/search/?query="+ query)
+        navigate("/search/?query="+ query) // charge juste le composent avec nos info en étant envoyé sur le lien de la recherche
     };
 
   return (
@@ -25,7 +25,7 @@ const Header = () => {
             <form method="get" onSubmit={handleSubmit}>
             <label>
                 Recherche:
-                <input type="text" name="search-querry" placeholder="Rechercher" />
+                <input type="text" name="query" placeholder="Rechercher" />
             </label>
                 
                 <button type="submit">Rechercher</button>
@@ -36,6 +36,5 @@ const Header = () => {
     </>
   )
 }
-Header();
 
 export default Header

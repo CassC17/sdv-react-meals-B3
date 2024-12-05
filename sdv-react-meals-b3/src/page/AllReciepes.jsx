@@ -2,16 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Header from '../component/Header';
 import Footer from '../component/Footer';
 import { Link } from 'react-router-dom';
+import useGetMeal from '../hook/useGetMeal';
 
 
 const AllRecipes = () => {
-  const [recipes, setRecipes] = useState([]);
-
-  const fetchRecipes = async () => {
-      const response = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=e');
-      const data = await response.json();
-      setRecipes(data.meals);
-  };
+  const recipes = useGetMeal();
 
   useEffect(() => {
       fetchRecipes();
