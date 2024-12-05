@@ -2,24 +2,21 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../component/Header";
 import Footer from "../component/Footer";
+import useGetMealById from "../hook/useGetMealById";
 
 const ShowMealPage = () => {
-  const { id } = useParams();
+  const {meal} = useGetMealById();
 
   if (!meal) {
-    return (
-      <>
-        <main>
-          <p>Chargement</p>
-        </main>
-      </>
-    )
+    return <p>Chargement</p>;
   }
+
+  console.log(meal);
 
   return (
     <>
       <Header />
-      <main>
+      <main key={meal.idMeal}>
         <h1>{meal.strMeal}</h1>
         <p>Catégorie : {meal.strCategory}</p>
         <p>Instructions : </p>
